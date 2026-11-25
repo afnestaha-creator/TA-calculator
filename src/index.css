@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-latin: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  html[lang="en"],
+  html[lang="fr"] {
+    font-family: var(--font-latin);
+  }
+}
+
+.bg-architectural-grid {
+  background-color: #F8FAFC;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.10), transparent 70%),
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.dark .bg-architectural-grid {
+  background-color: #070D19;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.14), transparent 70%),
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Range Slider matching crisp cobalt aesthetic */
+input[type='range'].ta-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: #E2E8F0;
+  outline: none;
+}
+
+.dark input[type='range'].ta-slider {
+  background: #1E293B;
+}
+
+input[type='range'].ta-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 3px solid #2563EB;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(11, 29, 57, 0.16);
+  transition: transform 0.15s ease;
+}
+
+input[type='range'].ta-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type='range'].ta-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 3px solid #2563EB;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(11, 29, 57, 0.16);
+}
+
+/* Clean A4 Print-to-PDF layout */
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #FFFFFF !important;
+    color: #0B1D39 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .bg-architectural-grid,
+  .dark .bg-architectural-grid {
+    background: #FFFFFF !important;
+    background-image: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 7px !important;
+    box-sizing: border-box !important;
+  }
+
+  .print-container {
+    display: block !important;
+    padding: 7px !important;
+    box-sizing: border-box !important;
+  }
+
+  .print-sheet {
+    background: #FFFFFF !important;
+    color: #0B1D39 !important;
+    box-shadow: none !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 12px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    width: 100% !important;
+    max-width: 210mm !important;
+    box-sizing: border-box !important;
+  }
+}

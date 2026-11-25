@@ -1,0 +1,35 @@
+{
+  "appId": "com.tacompany.studio",
+  "productName": "TA Company Studio",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "package.json"
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "public/pwa-512x512.png"
+  },
+  "mac": {
+    "target": ["dmg", "zip"],
+    "category": "public.app-category.business",
+    "icon": "public/pwa-512x512.png"
+  },
+  "linux": {
+    "target": ["AppImage", "deb"],
+    "category": "Office",
+    "icon": "public/pwa-512x512.png"
+  }
+}

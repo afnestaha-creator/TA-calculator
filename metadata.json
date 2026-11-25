@@ -1,0 +1,6 @@
+{
+  "name": "TA Company — Studio & Price Calculator",
+  "description": "Cross-platform offline-capable desktop workspace for TA Company featuring an integrated dynamic project price calculator, A4 Devis quote generator, and developer resources.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
